@@ -1,3 +1,5 @@
+const { configure } = require("@storybook/react")
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -14,5 +16,11 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION'){
+      config.base = '/ignite-lab-ds/'
+    }
+    return config;
   }
 }
